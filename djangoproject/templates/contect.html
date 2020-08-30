@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{%block title%}contect us{%endblock title %}
+{% block body%}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+<div class="container-fluid my-0 px-0">
+    <img src="/static/img/4.jfif" class="d-block w-100 mx-0" height=400 alt="...">
+</div>
+<div class="container-fluid my-4 px-4">
+    <h4><b><i>Contect Us :-</i></b></h4>
+    <div class="container-fluid my-2 px-0">
+        <p><strong>Office Adderss:- Chota Gamharia , near Over Bridge , Kerla Public School </strong></p>
+        <p><strong> for any quarry :- call us : 9060071846</strong></p>
+        <divc class="container my-0">
+            <p><strong>you can also send your quarry by mail</strong></p>
+    </div>
+    <div class="dropdown-divider"></div>
+    <form method="POST" action="/contect">
+        {%csrf_token%}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name"placeholder="Enter your name...">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"placeholder="Enter your email...">
+            <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="quarry">Your quarry</label>
+            <input type="text" class="form-control" id="quarry" name="quarry"placeholder="Enter your quarry...">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+{%endblock body%}
